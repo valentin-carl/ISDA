@@ -16,5 +16,5 @@
 ### Hilfreiche Links
 
 - [Codd, E. F. (1990). The Relational Model for Databse Management: Version 2.](https://dl.acm.org/doi/pdf/10.5555/77708)
-- [Garcia-Molina, H., Ullman, J. D., & Widom, J. (2008). Databse Systems: The Complete Book, Second Edition.](https://people.inf.elte.hu/miiqaai/elektroModulatorDva.pdf)
+- [Garcia-Molina, H., Ullman, J. D., & Widom, J. (2008). Database Systems: The Complete Book, Second Edition.](https://people.inf.elte.hu/miiqaai/elektroModulatorDva.pdf)
 
