@@ -17,4 +17,6 @@
 
 - [Codd, E. F. (1990). The Relational Model for Databse Management: Version 2.](https://dl.acm.org/doi/pdf/10.5555/77708)
 - [Garcia-Molina, H., Ullman, J. D., & Widom, J. (2008). Database Systems: The Complete Book, Second Edition.](https://people.inf.elte.hu/miiqaai/elektroModulatorDva.pdf)
+- [Wickham, H. & Grolemund, G. (2017). R for Data Science.](https://r4ds.had.co.nz)
+- [Beaulieu, A. (2009). Learning SQL, 2nd Edition.](https://www.r-5.org/files/books/computers/languages/sql/mysql/Alan_Beaulieu-Learning_SQL-EN.pdf)
 
