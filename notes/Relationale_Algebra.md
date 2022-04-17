@@ -20,7 +20,7 @@ Soll jetzt bei einer endlichen Menge die Reihenfolge eine Rolle spielen, spreche
 
 <img src="equations/RelationaleAlgebra/Tupel.png" height="25">
 
-#### Karthesisches Produkt zweier Mengen
+#### Kartesisches Produkt zweier Mengen
 
 Wenn wir jetzt die beiden Mengen *A* und *B* haben, 
 
@@ -28,11 +28,11 @@ Wenn wir jetzt die beiden Mengen *A* und *B* haben,
 
 <img src="equations/RelationaleAlgebra/MengeB.png" height="25">
 
-definieren wir das **karthesische Produkt** wie folgt.
+definieren wir das **kartesische Produkt** wie folgt.
 
-<img src="equations/RelationaleAlgebra/karthesischesProdukt.png" height="25">
+<img src="equations/RelationaleAlgebra/kartesischesProdukt.png" height="25">
 
-Somit ist das karthesische Produkt
+Somit ist das kartesische Produkt
 
 <img src="equations/RelationaleAlgebra/kP.png" height="25">
 
