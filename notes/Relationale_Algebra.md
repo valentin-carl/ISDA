@@ -8,6 +8,8 @@ Um ein intuitives Verständnis davon zu entwickeln, was relationale Agebra ist, 
 
 ### Was sind Relationen?
 
+> Das Flgende ist angelehnt an *Wagner, K. (2003) Theoretische Informatik – Eine kompakte Einführung. S. 7/8*.
+
 #### Tupel
 
 Für normale Mengen ist die Reihenfolge egal. So gilt zum Beispiel die folgende Gleichung.
