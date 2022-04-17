@@ -30,11 +30,11 @@ Wenn wir jetzt die beiden Mengen *A* und *B* haben,
 
 definieren wir das **kartesische Produkt** wie folgt.
 
-<img src="equations/RelationaleAlgebra/kartesischesProdukt.png" height="25">
+<img src="equations/RelationaleAlgebra/kP.png" height="25">
 
 Somit ist das kartesische Produkt
 
-<img src="equations/RelationaleAlgebra/kP.png" height="25">
+<img src="equations/RelationaleAlgebra/kartesischesProdukt.png" height="25">
 
 *Hinweis:* Manchmal wird stattdessen auch vom **Kreuzprodukt** gesprochen, gemeint ist aber das gleiche.
 
