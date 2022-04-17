@@ -10,9 +10,7 @@ Um ein intuitives Verständnis davon zu entwickeln, was relationale Agebra ist, 
 
 #### Karthesisches Produkt zweier Mengen
 
-\begin{equation}
-	A \cross B = \{(a,b) \mid a \in A, b \in B\}
-\end{equation}
+![](equations/karthesischesProdukt.png)
 
 Denjenigen, für die Relationen ein neues Konzept sind, empfehle ich, [hier](https://link.springer.com/content/pdf/10.1007/978-3-642-55452-0.pdf) die Seiten 5 bis 9 als kurze Einführung zu lesen; allen an Relationen Interessierten kann ich [hier](https://link.springer.com/content/pdf/10.1007%2F978-3-642-56792-6.pdf) das erste Kapitel für eine ausführlichere Erklärung empfehlen.
 
