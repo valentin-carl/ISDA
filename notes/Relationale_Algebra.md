@@ -6,11 +6,11 @@ Datenbanken haben im Alltag eines Informatikers zwei Funktionen: Zunächst sind 
 
 Um ein intuitives Verständnis davon zu entwickeln, was relationale Agebra ist, ist es sinnvoll, sich Relationen und Algebren im Allgemeinen anzuschauen.
 
-### Was sind Relationen?
+## Was sind Relationen?
 
-> Das Flgende ist angelehnt an *Wagner, K. (2003) Theoretische Informatik – Eine kompakte Einführung. S. 7/8*.
+> Das Folgende ist angelehnt an *Wagner, K. (2003) Theoretische Informatik – Eine kompakte Einführung. S. 7/8*.
 
-#### Tupel
+### Tupel
 
 Für normale Mengen ist die Reihenfolge egal. So gilt zum Beispiel die folgende Gleichung.
 
@@ -20,7 +20,7 @@ Soll jetzt bei einer endlichen Menge die Reihenfolge eine Rolle spielen, spreche
 
 <img src="equations/RelationaleAlgebra/Tupel.png" height="25">
 
-#### Kartesisches Produkt zweier Mengen
+### Kartesisches Produkt zweier Mengen
 
 Wenn wir jetzt die beiden Mengen *A* und *B* haben, 
 
@@ -38,7 +38,7 @@ Somit ist das kartesische Produkt
 
 *Hinweis:* Manchmal wird stattdessen auch vom **Kreuzprodukt** gesprochen, gemeint ist aber das gleiche.
 
-#### Relationen
+### Relationen
 
 Jetzt nennen wir die Menge *R* mit 
 
@@ -48,6 +48,6 @@ eine Relation über *A* und *B*.
 
 > Denjenigen, für die Relationen ein neues Konzept sind, empfehle ich, [hier](https://link.springer.com/content/pdf/10.1007/978-3-642-55452-0.pdf) die Seiten 5 bis 9 als kurze Einführung zu lesen; allen an Relationen Interessierten kann ich [hier](https://link.springer.com/content/pdf/10.1007%2F978-3-642-56792-6.pdf) das erste Kapitel für eine ausführlichere Erklärung empfehlen.
 
-### Was ist eine Algebra?
+## Was ist eine Algebra?
 
 
