@@ -23,6 +23,7 @@ Soll jetzt bei einer endlichen Menge die Reihenfolge eine Rolle spielen, spreche
 Wenn wir jetzt die beiden Mengen *A* und *B* haben, 
 
 <img src="equations/RelationaleAlgebra/MengeA.png" height="25">
+
 <img src="equations/RelationaleAlgebra/MengeB.png" height="25">
 
 definieren wir das **karthesische Produkt** wie folgt.
@@ -39,7 +40,7 @@ Somit ist das karthesische Produkt
 
 Jetzt nennen wir die Menge *R* mit 
 
-<img src="equations/RelationaleAlgebra/kP.png" height="25">
+<img src="equations/RelationaleAlgebra/Relation.png" height="25">
 
 eine Relation über *A* und *B*.
 
