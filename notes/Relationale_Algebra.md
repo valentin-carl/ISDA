@@ -22,7 +22,7 @@ Soll jetzt bei einer endlichen Menge die Reihenfolge eine Rolle spielen, spreche
 
 ### Kartesisches Produkt zweier Mengen
 
-Wenn wir jetzt die beiden Mengen *A* und *B* haben, 
+Ausgehend von den beiden Mengen *A* und *B*,
 
 <img src="equations/RelationaleAlgebra/MengeA.png" height="25">
 
@@ -49,5 +49,14 @@ eine Relation über *A* und *B*.
 > Denjenigen, für die Relationen ein neues Konzept sind, empfehle ich, [hier](https://link.springer.com/content/pdf/10.1007/978-3-642-55452-0.pdf) die Seiten 5 bis 9 als kurze Einführung zu lesen; allen an Relationen Interessierten kann ich [hier](https://link.springer.com/content/pdf/10.1007%2F978-3-642-56792-6.pdf) das erste Kapitel für eine ausführlichere Erklärung empfehlen.
 
 ## Was ist eine Algebra?
+
+
+
+## Relationale Algebra
+
+
+---
+
+## Literaturhinweise
 
 
