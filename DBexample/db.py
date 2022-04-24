@@ -12,7 +12,7 @@ if __name__ == "__main__":
     db_connection = sqlite3.connect("database.db")
     cursor = db_connection.cursor()
 
-    # greet db use
+    # greet db user
     print("Enter your SQL commands to execute in sqlite3.")
     print("Enter a blank line to exit.")
 
@@ -32,11 +32,11 @@ if __name__ == "__main__":
                 buffer = buffer.strip()
                 cursor.execute(buffer)
                 if buffer.lstrip().upper().startswith("SELECT"):
-                    print(cur.fetchall())
+                    print(cursor.fetchall())
             except sqlite3.Error as e:
                 print("An error occurred:", e.args[0])
             buffer = ""
 
-    # close to database connection to allow other processes to access db file
+    # close the database connection to allow other processes to access db file
     db_connection.close()
 
