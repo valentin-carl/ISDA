@@ -4,39 +4,34 @@ import sqlite3
 for reference, see: https://docs.python.org/3/library/sqlite3.html
 """
 if __name__ == "__main__":
-    
-    """
-    create connection to database &
-    cursor object to execute SQL commands
-    """
-    db_connection = sqlite3.connect("database.db")
-    cursor = db_connection.cursor()
 
-    # greet db user
-    print("Enter your SQL commands to execute in sqlite3.")
-    print("Enter a blank line to exit.")
+    # establish database connection
+    connection = sqlite3.connect("database.db")
+    cursor = connection.cursor()
 
-    # accept new SQL commands until empty line is entered
+    # greet user
+    print("Please enter your SQL commands")
+
+    # start reading console input and try executing it
     buffer = ""
     while True:
-
-        # get new command line input
+    
+        # read user input
         line = input()
         if line == "":
             break
-
-        # read and execute SQL command
         buffer += line
+
+        # if user entered valid sql command, try to execute it
         if sqlite3.complete_statement(buffer):
             try:
-                buffer = buffer.strip()
                 cursor.execute(buffer)
-                if buffer.lstrip().upper().startswith("SELECT"):
+                if buffer.startswith("SELECT") or buffer.startswith("select"):
                     print(cursor.fetchall())
             except sqlite3.Error as e:
                 print("An error occurred:", e.args[0])
             buffer = ""
 
-    # close the database connection to allow other processes to access db file
-    db_connection.close()
+    # close the database connection
+    connection.close()
 
