@@ -1,4 +1,1 @@
-#!/bin/sh
-
-# test whether database file exists
-
+create_db.pyrm init.sh/bin/sh
