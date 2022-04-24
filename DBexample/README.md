@@ -4,4 +4,4 @@ To create a database (assuming you're using a unix shell), just run `./init.sh` 
 
 To play around with the database, run the `db.py` file, which lets you put SQL commands into your console and will print the results.
 
-If you find any bugs (as there will probably be some), please open an issue, shoot me an [e-mail](v.carl@campus.tu-berlin.de), or fix them and start a pull request (preffered option).
+If you find any bugs (as there will probably be some), please open an issue, shoot me an [e-mail](mailto:v.carl@campus.tu-berlin.de), or fix them and start a pull request (preferred option 😀).
