@@ -1,4 +1,4 @@
-# Relationaler Entwurf
+# Datenbankmodellierung
 
 ## Das Entity-Relationship-Modell
 
