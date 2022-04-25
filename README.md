@@ -13,6 +13,10 @@
 - Data Science
 - Data Streams
 
+### Datenbankbeispiel
+
+[Hier](https://github.com/valentin-carl/ISDA/tree/main/DBexample) findet sich der Code, um eine kleine eigene Datenbank auf dem Rechner laufen zu lassen und an diese `SQL`-Abfragen zu stellen. In der Datenbank selbst sind nur wenige Daten als Beispiel; auf dem Code kann aber beliebig aufgebaut werden, um ausführlichere Beispiele zu bauen. Es sind aber keine `Python`-Kenntnisse nötig, um `SQL` zu üben.
+
 ### Hilfreiche Links
 
 - [Codd, E. F. (1990). The Relational Model for Database Management: Version 2.](https://dl.acm.org/doi/pdf/10.5555/77708)
