@@ -4,9 +4,9 @@
 
 ### Themenübersicht
 
-- Datenbankmodellierung
+- [Datenbankmodellierung](https://valentin-carl.github.io/ISDA/notes/Relationaler_Entwurf)
 - Relationaler Entwurf
-- Relationale Algebra
+- [Relationale Algebra](https://valentin-carl.github.io/ISDA/notes/Relationale_Algebra)
 - SQL
 - Transaktionsmanagement
 - Data Warehousing
