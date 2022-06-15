@@ -105,6 +105,7 @@ class="math inline"><em>T</em><sub>1</sub></span> noch abgebrochen wird,
 wodurch <span class="math inline"><em>T</em><sub>2</sub></span> einen
 falschen Wert von <span class="math inline"><em>X</em></span> gelesen
 hätte.</p>
+<center>
 <table>
 <thead>
 <tr class="header">
@@ -147,6 +148,7 @@ class="math inline"><code>a</code><code>b</code><code>o</code><code>r</code><cod
 </tr>
 </tbody>
 </table>
+</center>
 <h4 id="non-repeatable-read">Non-repeatable Read</h4>
 <p>Es existieren verschiedene Versionen des non-repeatable read in der
 Literatur. Aus diesem Grund unterscheiden wir nun zwischen zwei
@@ -161,6 +163,7 @@ unterscheiden. Hier liest <span
 class="math inline"><em>T</em><sub>1</sub></span> <span
 class="math inline"><em>X</em></span> mehrfach und bekommt
 unterschiedliche Werte dafür zurück.</p>
+<center>
 <table>
 <thead>
 <tr class="header">
@@ -198,6 +201,7 @@ class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><cod
 </tr>
 </tbody>
 </table>
+</center>
 <p>Ein <strong>inconsitent read</strong> tritt auf, wenn sich, nach dem
 ein Wert gelesen wurde, eine andere Transaktion diesen Wert ändert (und
 mit <span
@@ -208,6 +212,7 @@ class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><cod
 beendet wird, stimmt der Wert, den <span
 class="math inline"><em>T</em><sub>1</sub></span> für <span
 class="math inline"><em>X</em></span> gelesen hat, schon nicht mehr.</p>
+<center>
 <table>
 <thead>
 <tr class="header">
@@ -240,10 +245,12 @@ class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><cod
 </tr>
 </tbody>
 </table>
+</center>
 <h4 id="lost-update">Lost Update</h4>
 <p>Beim lost update Problem überschreibt eine Transaktion die Änderung
 einer anderen Transaktion, ohne die überschriebene Änderung zu
 berücksichtigen.</p>
+<center>
 <table>
 <thead>
 <tr class="header">
@@ -286,6 +293,353 @@ class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><cod
 </tr>
 </tbody>
 </table>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Transaktionen</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="handout-transaktionen">Handout: Transaktionen</h1>
+<h2 id="definitionen">Definitionen</h2>
+<h3 id="aktionen-und-transaktionen">Aktionen und Transaktionen</h3>
+<p>Eine <strong>Aktion</strong> auf einer Datenbank kann entweder <span
+class="math inline">read<sub><em>i</em></sub>(<em>X</em>)</span> oder
+<span class="math inline">write<sub><em>i</em></sub>(<em>X</em>)</span>
+sein. Wir schreiben als Kurzform auch <span
+class="math inline">r<sub><em>i</em></sub>(<em>X</em>)</span> und <span
+class="math inline">w<sub><em>i</em></sub>(<em>X</em>)</span>. Dabei
+gibt <span class="math inline"><em>i</em></span> an, zu welcher
+Transaktion eine Aktion gehört und <span
+class="math inline"><em>X</em></span> ist das Datenbankobjekt, das
+gelesen oder geschrieben wird. Eine <strong>Transaktion</strong> ist
+eine Folge von Aktionen, die eine Datenbank von einem konsistenten
+Zustand in einen anderen konsistenten Zustand überführt.</p>
+<h3 id="acid-eigenschaften-von-transaktionen">ACID-Eigenschaften von
+Transaktionen</h3>
+<ul>
+<li><strong>Atomicity/Atomarität:</strong> Eine Transaktion wird ganz
+oder garnicht ausgeführt.</li>
+<li><strong>Consistency/Konsistenz:</strong> Eine DB ist nach einer
+Transaktion in einem konsistenten Zustand, wenn sie es davor auch
+war.</li>
+<li><strong>Isolation:</strong> Eine Transaktion hat den Eindruck,
+alleine auf der DB zu arbeiten.</li>
+<li><strong>Durability/Dauerhaftigkeit:</strong> Die Ergebnisse einer
+Transaktion sollen nicht nur temporär gespeichert werden.</li>
+</ul>
+<h3 id="konflikte">Konflikte</h3>
+<p>Ein Konflikt entsteht, falls zwei Aktionen aus verschiedenen
+Transaktionen (<span class="math inline">I</span>) das selbe
+Datenbankelement <span class="math inline"><em>X</em></span> betreffen
+und (<span class="math inline">II</span>) mindestens eine der Aktionen
+<span class="math inline">write(<em>X</em>)</span> ist. Für zwei
+verschiedene Transaktionen <span
+class="math inline"><em>T</em><sub><em>i</em></sub></span>, <span
+class="math inline"><em>T</em><sub><em>j</em></sub></span> und ein
+Datenbankelement <span class="math inline"><em>X</em></span> stehen die
+Aktionen</p>
+<ul>
+<li><span class="math inline">w<sub><em>i</em></sub>(<em>X</em>)</span>
+und <span
+class="math inline">r<sub><em>j</em></sub>(<em>X</em>)</span></li>
+<li><span class="math inline">w<sub><em>i</em></sub>(<em>X</em>)</span>
+und <span
+class="math inline">w<sub><em>j</em></sub>(<em>X</em>)</span></li>
+</ul>
+<p>in Konflikt.</p>
+<h3 id="schedules">Schedules</h3>
+<p>Eine <strong>Schedule</strong> einer Menge von Transaktionen
+definierte eine Reihenfolge, in der die Aktionen der Transaktionen
+ausgeführt werden. Dabei müssen alle Aktionen der Transaktionen in der
+Schedule enthalten sein und die Reihenfolge von Aktionen innerhalb der
+Transaktion muss mit der Reihenfolge der Aktionen in der Schedule
+übereinstimmen</p>
+<h4 id="seriellserialisierbar">Seriell/serialisierbar</h4>
+<p>Wir nennen eine Schedule <strong>seriell</strong>, wenn alle
+Transaktionen in der Schedule hintereinander ausgeführt werden.</p>
+<p>Eine Schedule ist <strong>serialisierbar</strong>, wenn deren Effekt
+identisch zum Effekt einer seriellen Schedule ist.</p>
+<h4
+id="konfliktäquivalenzkonfliktserialisierbarkeit">Konfliktäquivalenz/Konfliktserialisierbarkeit</h4>
+<p>Zwei Schedules heißen <em>konfliktäquivalent</em>, wenn die
+Reihenfolge aller Paare von konfligierenden Aktionen in beiden Schedules
+gleich ist.</p>
+<p>Ein Schedule ist <em>konfliktserialisierbar</em>, wenn er
+konfliktäquivalent zu einem seriellen Schedule ist.</p>
+<p>Alle konfliktserialisierbaren Schedules sind auch serialisierbar.
+Nicht alle serialisierbaren Schedules sind auch
+konfliktserialisierbar.</p>
+<hr />
+<h2
+id="mögliche-probleme-bei-serieller-ausführung-mehrerer-transaktionen">Mögliche
+Probleme bei serieller Ausführung mehrerer Transaktionen</h2>
+<h4 id="dirty-read">Dirty Read</h4>
+<p>Eine Transaktion <span
+class="math inline"><em>T</em><sub>2</sub></span> liest den Wert eines
+Datenbankobjekts <span class="math inline"><em>X</em></span>, der von
+einer anderen Transaktion <span
+class="math inline"><em>T</em><sub>1</sub></span> geschrieben, aber
+nicht committed wurde. Problem: Es kann sein, dass <span
+class="math inline"><em>T</em><sub>1</sub></span> noch abgebrochen wird,
+wodurch <span class="math inline"><em>T</em><sub>2</sub></span> einen
+falschen Wert von <span class="math inline"><em>X</em></span> gelesen
+hätte.</p>
+<center>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>1</sub></span></th>
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>2</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">r<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">w<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">r<sub>2</sub>(<em>X</em>)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">w<sub>2</sub>(<em>X</em>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline"><code>a</code><code>b</code><code>o</code><code>r</code><code>t</code></span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</center>
+<h4 id="non-repeatable-read">Non-repeatable Read</h4>
+<p>Es existieren verschiedene Versionen des non-repeatable read in der
+Literatur. Aus diesem Grund unterscheiden wir nun zwischen zwei
+Fällen.</p>
+<ul>
+<li>non-repeatable read</li>
+<li>inconsistent read</li>
+</ul>
+<p>Ein <strong>non-repeatable read</strong> tritt auf, wenn ein Wert
+während einer Transaktion zwei mal gelesen wird und sich die Werte
+unterscheiden. Hier liest <span
+class="math inline"><em>T</em><sub>1</sub></span> <span
+class="math inline"><em>X</em></span> mehrfach und bekommt
+unterschiedliche Werte dafür zurück.</p>
+<center>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>1</sub></span></th>
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>2</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">r<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">w<sub>2</sub>(<em>X</em>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">r<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Ein <strong>inconsitent read</strong> tritt auf, wenn sich, nach dem
+ein Wert gelesen wurde, eine andere Transaktion diesen Wert ändert (und
+mit <span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span>
+schreibt). Zu dem Zeitpunkt, an dem <span
+class="math inline"><em>T</em><sub>1</sub></span> mit <span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span>
+beendet wird, stimmt der Wert, den <span
+class="math inline"><em>T</em><sub>1</sub></span> für <span
+class="math inline"><em>X</em></span> gelesen hat, schon nicht mehr.</p>
+<center>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>1</sub></span></th>
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>2</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">r<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">w<sub>2</sub>(<em>X</em>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="lost-update">Lost Update</h4>
+<p>Beim lost update Problem überschreibt eine Transaktion die Änderung
+einer anderen Transaktion, ohne die überschriebene Änderung zu
+berücksichtigen.</p>
+<center>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>1</sub></span></th>
+<th style="text-align: center;"><span
+class="math inline"><em>T</em><sub>2</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">r<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">r<sub>2</sub>(<em>X</em>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">w<sub>1</sub>(<em>X</em>)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline">w<sub>2</sub>(<em>X</em>)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline"><code>c</code><code>o</code><code>m</code><code>m</code><code>i</code><code>t</code></span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</center>
+<h4 id="phantom-problem">Phantom Problem</h4>
+<p>Während einer Transaktion, die sich auf mehrere Werte mit einer
+bestimmten Eigenschaft bezieht (<span class="math inline">→</span> SQL),
+fügt eine andere Transaktion neue Werte in die DB ein, die auch die
+bestimmte Eigenschaft besitzen.</p>
+<h4
+id="unterschied-zwischen-non-repeatable-read-und-phantom-read">Unterschied
+zwischen Non-Repeatable Read und Phantom Read</h4>
+<p>Bei einem non-repeatable read unterscheiden sich die <em>Werte</em>
+der gelesenen Datenbankobjekte, während sich bei einem phantom read die
+Datenbankobjekte <em>selber</em> unterscheiden.</p>
+<hr />
+<h2 id="überprüfung-von-konflikt-serialisierbarkeit">Überprüfung von
+Konflikt-/Serialisierbarkeit</h2>
+<h4 id="test-auf-serialisierbarkeit">Test auf Serialisierbarkeit</h4>
+<p>So lange Aktionen, die nicht in Konflikt stehen, tauschen, bis aus
+einem Schedule ein serieller Schedule wird. Falls das klappt, ist der
+Schedule serialisierbar.</p>
+<h4 id="test-auf-konfliktserialisierbarkeit">Test auf
+Konfliktserialisierbarkeit</h4>
+<p>Sei <span class="math inline"><em>S</em></span> eine Schedule. Wir
+definieren <span
+class="math inline"><em>G</em>(<em>S</em>) = (<em>V</em>,<em>E</em>)</span>
+als <em>Konfliktgraph</em> von <span
+class="math inline"><em>S</em></span>, wobei</p>
+<ul>
+<li>die Knotenmenge <span class="math inline"><em>V</em></span> je einen
+Knoten pro Transaktion enthält und</li>
+<li>die Kantenmenge <span class="math inline"><em>E</em></span> für
+jedes Paar von konfligierenden Aktionen aus verschiedenen Transaktionen
+eine gerichtete Kante enthält, wobei die Kantenrichtung der Reihenfolge
+der Aktionen in <span class="math inline"><em>S</em></span>
+entspricht.</li>
+</ul>
+<p><span class="math inline"><em>S</em></span> ist
+<em>konfliktserialisierbar</em> genau dann, wenn <span
+class="math inline"><em>G</em>(<em>S</em>)</span> keine Zyklen enthält.
+Enthält <span class="math inline"><em>G</em></span> einen Zyklus, so ist
+<span class="math inline"><em>S</em></span> nicht konfliktserialisierbar
+und damit auch nicht serialisierbar.</p>
+<hr />
+<h2 id="linksammlung">Linksammlung</h2>
+<ul>
+<li><a
+href="https://stackoverflow.com/questions/18297626/difference-between-non-repeatable-read-vs-dirty-read?noredirect=1&amp;lq=1">Unterschied
+non-repeatable read und dirty read</a></li>
+<li><a
+href="https://stackoverflow.com/questions/11043712/what-is-the-difference-between-non-repeatable-read-and-phantom-read">Unterscheid
+non-repeatable read und phantom read</a></li>
+</ul>
+</body>
+</html>
 <h4 id="phantom-problem">Phantom Problem</h4>
 <p>Während einer Transaktion, die sich auf mehrere Werte mit einer
 bestimmten Eigenschaft bezieht (<span class="math inline">→</span> SQL),
